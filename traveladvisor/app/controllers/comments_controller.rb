@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
 
-  def index
-    @comments = Comment.all
+  def new
+    @review = Review.find(params[:id])
+    @comment = Comment.new
 
     respond_to do |format|
       format.html { render :index }
@@ -9,37 +10,54 @@ class CommentsController < ApplicationController
     end
   end
 
-  def show
-    @comment = Comment.find(params[:id])
+  def create
+    @review = Review.find(params[:id])
+    @comment = @review.comments.create!(comment_params)
+    redirect_to review_path(@review)
 
     respond_to do |format|
-      format.html { render :show }
-      format.json { render json: @comment}
+      if @comment.save!
+        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
+        format.json { render json: @comment, status: :created, location: @comment }
+      else
+        format.html { render :new }
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
+      end
     end
   end
 
-  def create
-    @comment = Comment.create!(comment_params)
+  def edit
+    @review = Review.find(params[:review_id])
+    @comment = Comment.find(params[:id])
 
     respond_to do |format|
       format.html { render :show }
       format.json { render json: @comment }
+    end
   end
-end
 
   def update
+    @review = Review.find(params[:review_id])
     @comment = Comment.find(params[:id])
     @comment.update!(comment_params)
+    redirect_to review_path (@review)
 
     respond_to do |format|
-      format.html { render :show }
-      format.json { render json: @comment }
+      if @comment.update!(comment_params)
+        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
+        format.json { render json: @comment }
+      else
+        format.html { render :new }
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
+      end
     end
   end
 
   def destroy
+    @review = Review.find(params[:review_id])
     @comment = Comment.find(params[:id])
     @comment.destroy
+    redirect_to review_path(@review)
 
     respond_to do |format|
       format.json { render nothing:true }
@@ -48,6 +66,6 @@ end
 
   private
   def comment_params
-    params.require(:comment).permit(:photo_url, :author, :body)
+    params.require(:comment).permit(:author, :content)
   end
 end
