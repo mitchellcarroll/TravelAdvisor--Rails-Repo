@@ -2,6 +2,10 @@ Review.destroy_all
 Comment.destroy_all
 
 
+Review.destroy_all
+Comment.destroy_all
+
+
 reviews = Review.create!([
   {
     author: "Borat",
