@@ -4,4 +4,8 @@
 <%= review.title %><br>
 <%= review.content %><br>
 <%= review.photoUrl %>
+  <% review.comments.each do |comment|%>
+    <%= comment.author %>
+    <%= comment.content %>
+  <%end%>
 <%end%>
