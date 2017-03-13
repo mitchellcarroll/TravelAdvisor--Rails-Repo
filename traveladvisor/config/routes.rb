@@ -9,9 +9,19 @@ Rails.application.routes.draw do
   get '/test_ajax', to: 'reviews#test_ajax'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-   resources :reviews do
-       resources :comments
+   resources :locations do
+     resources :attractions
    end
 
+   resources :locations do
+     resources :reviews do
+       resources :comments
+     end
+   end
 
+   resources :attractions do
+     resources :reviews do
+       resources :comments
+     end
+   end
 end
