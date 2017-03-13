@@ -45,7 +45,7 @@ end
         format.json { render json: @review.errors, status: :unprocessable_entity }
       end
   end
-
+end
   def destroy
     @review = Review.find(params[:id])
     @review.destroy

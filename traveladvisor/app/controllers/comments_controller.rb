@@ -1,5 +1,15 @@
 class CommentsController < ApplicationController
 
+
+  def index
+    @comments = Comment.all
+
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @comments }
+    end
+  end
+
   def new
     @review = Review.find(params[:id])
     @comment = Comment.new
