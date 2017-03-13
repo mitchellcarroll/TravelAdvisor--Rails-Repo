@@ -1,7 +1,7 @@
-# Attraction.destroy_all
-# Location.destroy_all
-# Review.destroy_all
-# Comment.destroy_all
+Attraction.destroy_all
+Location.destroy_all
+Review.destroy_all
+Comment.destroy_all
 
 location1 = Location.create!(name: "Las Vegas, NV, USA", photoUrl: "http://placehold.it/100x100")
 location2 = Location.create!(name:"New York, NY, USA", photoUrl: "http://placehold.it/100x100")
