@@ -2,23 +2,19 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.all
-    @comments = @reviews.comments
-    response = { :reviews => @reviews, :comments => @comments }
 
     respond_to do |format|
       format.html { render :index }
-      format.json { render :json => response }
+      format.json { render json: @reviews }
     end
   end
 
   def show
     @review = Review.find(params[:id])
-    @comments = @review.comments.all
-    response = { :review => @review, :comments => @comments }
 
     respond_to do |format|
       format.html { render :show }
-      format.json { render :json => response }
+      format.json { render json: @review}
     end
   end
 
@@ -26,31 +22,21 @@ class ReviewsController < ApplicationController
     @review = Review.create!(review_params)
 
     respond_to do |format|
-      if @review.save!
-        format.html { redirect_to @review, notice: 'Review was successfully created.' }
-        format.json { render json: @review, status: :created, location: @review }
-      else
-        format.html { render :new }
-        format.json { render json: @review.errors, status: :unprocessable_entity }
-      end
-    end
+      format.html { render :show }
+      format.json { render json: @review }
   end
+end
 
   def update
     @review = Review.find(params[:id])
     @review.update!(review_params)
 
     respond_to do |format|
-      if @review.update!(review_params)
-        format.html { redirect_to @review, notice: 'Review was successfully updated.' }
-        format.json { render json: @review }
-      else
-        format.html { render :new }
-        format.json { render json: @review.errors, status: :unprocessable_entity }
-      end
+      format.html { render :show }
+      format.json { render json: @review }
     end
   end
-end
+
   def destroy
     @review = Review.find(params[:id])
     @review.destroy
