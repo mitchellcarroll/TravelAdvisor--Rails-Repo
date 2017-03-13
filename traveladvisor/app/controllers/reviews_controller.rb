@@ -2,19 +2,23 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.all
+    @comments = @reviews.comments
+    response = { :reviews => @reviews, :comments => @comments }
 
     respond_to do |format|
       format.html { render :index }
-      format.json { render json: @reviews }
+      format.json { render :json => response }
     end
   end
 
   def show
     @review = Review.find(params[:id])
+    @comments = @review.comments.all
+    response = { :review => @review, :comments => @comments }
 
     respond_to do |format|
       format.html { render :show }
-      format.json { render json: @review}
+      format.json { render :json => response }
     end
   end
 
@@ -30,7 +34,7 @@ class ReviewsController < ApplicationController
         format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end
-end
+  end
 
   def update
     @review = Review.find(params[:id])
@@ -44,6 +48,7 @@ end
         format.html { render :new }
         format.json { render json: @review.errors, status: :unprocessable_entity }
       end
+    end
   end
 end
   def destroy
