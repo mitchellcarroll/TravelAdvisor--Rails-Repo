@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170311203455) do
+ActiveRecord::Schema.define(version: 20170313143334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attractions", force: :cascade do |t|
+    t.string  "name",        null: false
+    t.string  "address"
+    t.string  "photoUrl"
+    t.integer "location_id"
+    t.index ["location_id"], name: "index_attractions_on_location_id", using: :btree
+  end
 
   create_table "comments", force: :cascade do |t|
     t.string   "author",     default: "Anonymous", null: false
@@ -24,14 +32,26 @@ ActiveRecord::Schema.define(version: 20170311203455) do
     t.index ["review_id"], name: "index_comments_on_review_id", using: :btree
   end
 
-  create_table "reviews", force: :cascade do |t|
-    t.string   "author",     default: "Anonymous", null: false
-    t.string   "title",                            null: false
-    t.string   "content",                          null: false
-    t.string   "photoUrl"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+  create_table "locations", force: :cascade do |t|
+    t.string "name",     null: false
+    t.string "photoUrl"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string   "author",        default: "Anonymous", null: false
+    t.string   "title",                               null: false
+    t.string   "content",                             null: false
+    t.string   "photoUrl"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.integer  "location_id"
+    t.integer  "attraction_id"
+    t.index ["attraction_id"], name: "index_reviews_on_attraction_id", using: :btree
+    t.index ["location_id"], name: "index_reviews_on_location_id", using: :btree
+  end
+
+  add_foreign_key "attractions", "locations"
   add_foreign_key "comments", "reviews"
+  add_foreign_key "reviews", "attractions"
+  add_foreign_key "reviews", "locations"
 end
