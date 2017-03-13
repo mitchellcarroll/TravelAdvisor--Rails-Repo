@@ -9,8 +9,8 @@ review3 = Review.create!(author: "Orange Man", title: "Make Kazakhstan Great Aga
 review4 = Review.create!(author: "Peter Griffin", title: "Not Family-Friendly!", content: "They stared at my wife a lot, and this Meg girl kept bothering us.", photoUrl: "http://placehold.it/100x100")
 review5 = Review.create!(author: "Chandler Bing", title: "I was going to Yemen!", content: "I was supposed to go to Yemen and ended up here!  I miss Monica...", photoUrl: "http://placehold.it/100x100")
 
-comment1 = review1.comment.create!(author: "Kazakhstan President Nazarbayev", content: "Borat is humiliating my country.")
-comment2 = review2.comment.create!(author: "Heisenberg", content: "I am the one who knocks in Kazakhstan!")
-comment3 = review3.comment.create!(author: "Barack Obama", content: "Kazakhstan just needs some ObamaCare.")
-comment4 = review4.comment.create!(author: "Borat", content: "Kazakhstan is very safe country!")
-comment5 = review5.comment.create!(author: "Janice", content: "I knew you were just running away!")
+comment1 = review1.comments.create!(author: "Kazakhstan President Nazarbayev", content: "Borat is humiliating my country.")
+comment2 = review2.comments.create!(author: "Heisenberg", content: "I am the one who knocks in Kazakhstan!")
+comment3 = review3.comments.create!(author: "Barack Obama", content: "Kazakhstan just needs some ObamaCare.")
+comment4 = review4.comments.create!(author: "Borat", content: "Kazakhstan is very safe country!")
+comment5 = review5.comments.create!(author: "Janice", content: "I knew you were just running away!")

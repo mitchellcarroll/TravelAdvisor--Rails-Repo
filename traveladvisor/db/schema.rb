@@ -16,11 +16,11 @@ ActiveRecord::Schema.define(version: 20170313143334) do
   enable_extension "plpgsql"
 
   create_table "attractions", force: :cascade do |t|
-    t.string  "name",         null: false
+    t.string  "name",        null: false
     t.string  "address"
     t.string  "photoUrl"
-    t.integer "locations_id"
-    t.index ["locations_id"], name: "index_attractions_on_locations_id", using: :btree
+    t.integer "location_id"
+    t.index ["location_id"], name: "index_attractions_on_location_id", using: :btree
   end
 
   create_table "comments", force: :cascade do |t|
@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 20170313143334) do
     t.string   "content",                          null: false
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
-    t.integer  "reviews_id"
-    t.index ["reviews_id"], name: "index_comments_on_reviews_id", using: :btree
+    t.integer  "review_id"
+    t.index ["review_id"], name: "index_comments_on_review_id", using: :btree
   end
 
   create_table "locations", force: :cascade do |t|
@@ -38,20 +38,20 @@ ActiveRecord::Schema.define(version: 20170313143334) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.string   "author",         default: "Anonymous", null: false
-    t.string   "title",                                null: false
-    t.string   "content",                              null: false
+    t.string   "author",        default: "Anonymous", null: false
+    t.string   "title",                               null: false
+    t.string   "content",                             null: false
     t.string   "photoUrl"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
-    t.integer  "locations_id"
-    t.integer  "attractions_id"
-    t.index ["attractions_id"], name: "index_reviews_on_attractions_id", using: :btree
-    t.index ["locations_id"], name: "index_reviews_on_locations_id", using: :btree
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.integer  "location_id"
+    t.integer  "attraction_id"
+    t.index ["attraction_id"], name: "index_reviews_on_attraction_id", using: :btree
+    t.index ["location_id"], name: "index_reviews_on_location_id", using: :btree
   end
 
-  add_foreign_key "attractions", "locations", column: "locations_id"
-  add_foreign_key "comments", "reviews", column: "reviews_id"
-  add_foreign_key "reviews", "attractions", column: "attractions_id"
-  add_foreign_key "reviews", "locations", column: "locations_id"
+  add_foreign_key "attractions", "locations"
+  add_foreign_key "comments", "reviews"
+  add_foreign_key "reviews", "attractions"
+  add_foreign_key "reviews", "locations"
 end

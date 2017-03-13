@@ -4,7 +4,7 @@ class CreateAttractions < ActiveRecord::Migration[5.0]
       t.string :name, null: false
       t.string :address
       t.string :photoUrl
-      t.references :locations, foreign_key: true
+      t.references :location, foreign_key: true
     end
   end
 end
