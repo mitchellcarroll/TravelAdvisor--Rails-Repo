@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 20170311203455) do
     t.string   "content",                          null: false
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
-    t.integer  "reviews_id"
-    t.index ["reviews_id"], name: "index_comments_on_reviews_id", using: :btree
+    t.integer  "review_id"
+    t.index ["review_id"], name: "index_comments_on_review_id", using: :btree
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -33,5 +33,5 @@ ActiveRecord::Schema.define(version: 20170311203455) do
     t.datetime "updated_at",                       null: false
   end
 
-  add_foreign_key "comments", "reviews", column: "reviews_id"
+  add_foreign_key "comments", "reviews"
 end
