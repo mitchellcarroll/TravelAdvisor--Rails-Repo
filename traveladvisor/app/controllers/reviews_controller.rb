@@ -48,6 +48,6 @@ end
 
   private
   def review_params
-    params.require(:review).permit(:photo_url, :author, :body)
+    params.require(:review).permit(:photoUrl, :author, :title, :content)
   end
 end
