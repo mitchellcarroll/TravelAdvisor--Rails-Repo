@@ -1,0 +1,9 @@
+<<<<<<< HEAD
+<h2><%= @attraction.name %> <%= @attraction.address %></h2>
+<% @attraction.reviews.each do |review| %>
+  <%= review.author %> - <%= link_to review.title, attraction_review_path(@attraction, review.id) %>
+  <%= review.content %>
+<% end %>
+=======
+  <h2><%= @attraction.name %> <%= @attraction.address %></h2>
+>>>>>>> b54878e3197d09aff918f07f5f33533d1752be9e
