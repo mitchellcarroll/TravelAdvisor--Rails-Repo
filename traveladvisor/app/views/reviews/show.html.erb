@@ -1,0 +1,11 @@
+<% if @review.location_id != nil %>
+  <%= link_to "Home", locations_path %> | <%= link_to "Back to Location Page", location_path(@review.location_id) %>
+<% else %>
+  <%= link_to "Home", locations_path %> | <%= link_to "Back to Attraction Page", attraction_path(@review.attraction_id) %>
+<%end%>
+<%= @review.author %> - <%= @review.title %><br>
+<%= @review.content %><br>
+<% @comments.each do |comment| %>
+  <%= comment.author %><br>
+  <%= comment.content %>
+<%end%>

@@ -1,2 +1,5 @@
 <h2><%= @location.name %></h2>
+<% @location.reviews.each do |review| %>
+  <%= review.author %> - <%= link_to review.title, location_review_path(@location, review.id) %>
+  <%= review.content %>
 <% end %>

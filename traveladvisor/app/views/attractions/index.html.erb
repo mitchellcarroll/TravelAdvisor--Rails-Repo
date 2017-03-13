@@ -1,7 +1,7 @@
 <h1>Attractions</h1>
 <% @attractions.each do |attraction|%>
-<%= attraction.name %><br>
+<%= link_to attraction.name, attraction_path(attraction.id) %><br>
 <%= attraction.address %><br>
-<%= attraction.photoUrl %>
+<%= attraction.photoUrl %><br>
 
 <%end%>
