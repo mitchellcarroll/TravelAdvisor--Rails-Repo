@@ -1,11 +1,1 @@
 <h2><%= @location.name %></h2>
-<<<<<<< HEAD
-<% @location.reviews.each do |review| %>
-  <%= review.author %> - <%= link_to review.title, location_review_path(@location, review.id) %>
-  <%= review.content %>
-<% end %>
-=======
-
-<h3> Reviews </h3>
-<%= @location.reviews %>
->>>>>>> b54878e3197d09aff918f07f5f33533d1752be9e
