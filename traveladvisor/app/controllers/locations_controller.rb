@@ -8,6 +8,9 @@ class LocationsController < ApplicationController
 
   def show
     @location = Location.find(params[:id])
-    render json: @location
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @location, include: :attractions }
+    end
   end
 end

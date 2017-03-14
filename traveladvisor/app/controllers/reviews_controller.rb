@@ -2,11 +2,10 @@ class ReviewsController < ApplicationController
 
   def show
     @review = Review.find(params[:id])
-    @comments = @review.comments
 
     respond_to do |format|
       format.html { render :show }
-      format.json { render :json => { :review => @review, :comments => @comments } }
+      format.json { render :json, include: :comments }
     end
   end
 
