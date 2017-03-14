@@ -13,12 +13,6 @@ Rails.application.routes.draw do
      resources :attractions
    end
 
-   resources :locations do
-     resources :reviews do
-       resources :comments
-     end
-   end
-
    resources :attractions do
      resources :reviews do
        resources :comments

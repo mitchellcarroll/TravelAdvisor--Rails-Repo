@@ -77,12 +77,12 @@ attraction40 = location29.attractions.create!(name: "Palace of Versailles", addr
 attraction41 = location30.attractions.create!(name: "Nagashima Spa Island", address: "333 Nagashimacho Urayasu, 桑名市長島町 Mie Prefecture 511-1135, Japan", photoUrl: "http://www.nagashima-onsen.co.jp/image/1504071753_pool.jpg")
 
 
-review1 = location1.reviews.create!(author: "Borat", title: "Greatest Country In The World", content: "Kazakhstan is the greatest country in the world!  All other countries are run by little girls!", photoUrl: "http://placehold.it/100x100")
-review2 = location2.reviews.create!(author: "Jesse Pinkman", title: "Kazakhstan Beeyatch!", content: "Kazakhstan has the bluest skies!", photoUrl: "http://placehold.it/100x100")
-review3 = location2.reviews.create!(author: "Orange Man", title: "Make Kazakhstan Great Again", content: "Kazakhstan did not live up to expectations, but I will make it great again!", photoUrl: "http://placehold.it/100x100")
-review4 = attraction1.reviews.create!(author: "Peter Griffin", title: "Not Family-Friendly!", content: "They stared at my wife a lot, and this Meg girl kept bothering us.", photoUrl: "http://placehold.it/100x100")
-review5 = attraction2.reviews.create!(author: "Chandler Bing", title: "I was going to Yemen!", content: "I was supposed to go to Yemen and ended up here!  I miss Monica...", photoUrl: "http://placehold.it/100x100")
-review6 = attraction2.reviews.create!(author: "Jay-Z", title: "Empire State of Mind", content: "These streets will make you feel brand new!", photoUrl: "http://placeholder.it/100x100")
+review1 = attraction1.reviews.create!(author: "Borat", title: "Greatest Country In The World", content: "Kazakhstan is the greatest country in the world!  All other countries are run by little girls!", photoUrl: "http://placehold.it/100x100")
+review2 = attraction2.reviews.create!(author: "Jesse Pinkman", title: "Kazakhstan Beeyatch!", content: "Kazakhstan has the bluest skies!", photoUrl: "http://placehold.it/100x100")
+review3 = attraction2.reviews.create!(author: "Orange Man", title: "Make Kazakhstan Great Again", content: "Kazakhstan did not live up to expectations, but I will make it great again!", photoUrl: "http://placehold.it/100x100")
+review4 = attraction3.reviews.create!(author: "Peter Griffin", title: "Not Family-Friendly!", content: "They stared at my wife a lot, and this Meg girl kept bothering us.", photoUrl: "http://placehold.it/100x100")
+review5 = attraction4.reviews.create!(author: "Chandler Bing", title: "I was going to Yemen!", content: "I was supposed to go to Yemen and ended up here!  I miss Monica...", photoUrl: "http://placehold.it/100x100")
+review6 = attraction5.reviews.create!(author: "Jay-Z", title: "Empire State of Mind", content: "These streets will make you feel brand new!", photoUrl: "http://placeholder.it/100x100")
 
 comment1 = review1.comments.create!(author: "Kazakhstan President Nazarbayev", content: "Borat is humiliating my country.")
 comment2 = review2.comments.create!(author: "Heisenberg", content: "I am the one who knocks in Kazakhstan!")

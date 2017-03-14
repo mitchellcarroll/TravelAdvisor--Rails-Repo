@@ -44,14 +44,11 @@ ActiveRecord::Schema.define(version: 20170313143334) do
     t.string   "photoUrl"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.integer  "location_id"
     t.integer  "attraction_id"
     t.index ["attraction_id"], name: "index_reviews_on_attraction_id", using: :btree
-    t.index ["location_id"], name: "index_reviews_on_location_id", using: :btree
   end
 
   add_foreign_key "attractions", "locations"
   add_foreign_key "comments", "reviews"
   add_foreign_key "reviews", "attractions"
-  add_foreign_key "reviews", "locations"
 end
