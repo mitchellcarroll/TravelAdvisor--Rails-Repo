@@ -4,16 +4,17 @@ class AttractionsController < ApplicationController
 
     @attractions = Attraction.all
     respond_to do |format|
-      #format.html { render: :index}
-    format.json { render json: @attractions, include: :reviews}
-  end
+      format.html { render :index }
+      format.json { render json: @attractions, include: :reviews}
+    end
   end
 
   def show
     @attraction = Attraction.find(params[:id])
+    @reviews = @attraction.reviews
     respond_to do |format|
-        #format.html { render: :index}
-    format.json { render  json: @attraction, include: :reviews}
+      format.html { render :show }
+      format.json { render json: @attraction, include: :reviews }
+    end
   end
-end
 end

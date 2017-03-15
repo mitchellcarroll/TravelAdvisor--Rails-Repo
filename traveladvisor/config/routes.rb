@@ -18,4 +18,8 @@ Rails.application.routes.draw do
        resources :comments
      end
    end
+
+   resources :reviews, only: [] do
+     resources :comments
+   end
 end
