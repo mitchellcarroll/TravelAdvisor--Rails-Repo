@@ -78,7 +78,7 @@ attraction41 = location30.attractions.create!(name: "Nagashima Spa Island", addr
 
 
 review1 = attraction1.reviews.create!(author: "Borat", title: "Greatest Country In The World", content: "Kazakhstan is the greatest country in the world!  All other countries are run by little girls!", photoUrl: "http://placehold.it/100x100")
-review2 = attraction2.reviews.create!(author: "Jesse Pinkman", title: "Kazakhstan Beeyatch!", content: "Kazakhstan has the bluest skies!", photoUrl: "http://placehold.it/100x100")
+review2 = attraction2.reviews.create!(author: "Jesse Pinkman", title: "Times Square Beeyatch!", content: "Kazakhstan has the bluest skies!", photoUrl: "http://placehold.it/100x100")
 review3 = attraction2.reviews.create!(author: "Orange Man", title: "Make Kazakhstan Great Again", content: "Kazakhstan did not live up to expectations, but I will make it great again!", photoUrl: "http://placehold.it/100x100")
 review4 = attraction3.reviews.create!(author: "Peter Griffin", title: "Not Family-Friendly!", content: "They stared at my wife a lot, and this Meg girl kept bothering us.", photoUrl: "http://placehold.it/100x100")
 review5 = attraction4.reviews.create!(author: "Chandler Bing", title: "I was going to Yemen!", content: "I was supposed to go to Yemen and ended up here!  I miss Monica...", photoUrl: "http://placehold.it/100x100")
