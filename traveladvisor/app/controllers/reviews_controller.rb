@@ -1,11 +1,20 @@
 class ReviewsController < ApplicationController
 
+  def index
+    @reviews = Review.all
+
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @reviews, include: :comments }
+    end
+  end
+
   def show
     @review = Review.find(params[:id])
 
     respond_to do |format|
       format.html { render :show }
-      format.json { render :json, include: :comments }
+      format.json { render json: @review, include: :comments }
     end
   end
 
