@@ -10,6 +10,15 @@ class CommentsController < ApplicationController
     end
   end
 
+  def show
+    @comment = Comment.find(params[:id])
+
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @comment }
+    end
+  end
+
   def new
     @review = Review.find(params[:id])
     @comment = Comment.new
