@@ -32,7 +32,7 @@ location26 = Location.create!(name: "Lantau Island, Hong Kong, China", photoUrl:
 location27 = Location.create!(name: "Seoul, South Korea", photoUrl: "http://cc3dmrkorea.dothome.co.kr/wp-content/uploads/2015/07/Seoul02.jpg")
 location28 = Location.create!(name: "New Orleans, LA, USA", photoUrl: "http://cdn.gearpatrol.com/wp-content/uploads/2015/02/72-new-orleans-gear-patrol-lead-full.jpg")
 location29 = Location.create!(name: "Versailles, France", photoUrl: "http://imagestore1.blogger.hu/25_134841_642996_d973289f55a0b48364a5b94c1b21c796_4134f5_301.jpg")
-location30 = Location.create!(name: "Nagoya, Japan", photoUrl: "http://www.japantimes.co.jp/wp-content/uploads/2016/10/p18-brasor-nagoya-a-20161009.jpg")
+location30 = Location.create!(name: "Nagoya, Japan", photoUrl: "https://media-cdn.tripadvisor.com/media/photo-s/01/f1/5a/da/oasis-21-em-nagoya.jpg")
 
 attraction1 = location1.attractions.create!(name: "Las Vegas Strip", address: "South Las Vegas Blvd, Las Vegas, NV, USA", photoUrl: "http://az616578.vo.msecnd.net/files/2016/05/14/635987913053039946-1946633074_vegas%20strip.jpg")
 attraction2 = location2.attractions.create!(name: "Times Square", address: "Manhattan, NY 10036", photoUrl: "http://www.nycgo.com/images/venues/152/tripadvisortimessquare_taggeryanceyiv_5912__x_large.jpg")
